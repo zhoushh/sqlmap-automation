@@ -18,11 +18,11 @@ namespace sqlmap_automation
 				Console.WriteLine("New task ID: " + taskId);
 				Console.WriteLine("Deleting task:" + taskId);
 
-				response = session.ExecuteGet("/task/" + taskId + "/delete/");
+				response = session.ExecuteGet("/task/" + taskId + "/delete");
 				token = JObject.Parse(response);
 				bool isSuccessful = (bool) token.SelectToken("success");
 
-				Console.WriteLine("delete successful: " + isSuccessful);
+				Console.WriteLine("Delete successful: " + isSuccessful);
 			}
 		}
 	}
