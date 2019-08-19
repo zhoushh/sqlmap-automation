@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Made with love in China
+using System;
 using System.Collections.Generic;
 
 namespace sqlmap_automation
