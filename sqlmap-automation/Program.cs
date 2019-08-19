@@ -25,6 +25,7 @@ namespace sqlmap_automation
 				options["url"] = args[0];
 				options["flushSession"] = true; // start a new scan for the same target, ignoring the former scans.
 				options["cookie"] = args[1];
+				// TODO: keep sqlmap running with Y for the options
 
 				// start scan
 				mngr.StartTask(taskId, options);
@@ -35,10 +36,12 @@ namespace sqlmap_automation
 					System.Threading.Thread.Sleep(new TimeSpan(0, 0, 10));
 					stat = mngr.GetScanStatus(taskId);
 				}
+				// TODO: add error handling and timeout
 
 				Console.WriteLine("Scan finished! \n\n Printing log...");
 
 				// print log
+				// TODO: create a log file
 				List<SqlmapLogItem> logItems = mngr.GetLog(taskId);
 				foreach (SqlmapLogItem item in logItems)
 					Console.WriteLine(item.Message);
